@@ -1,0 +1,2 @@
+# searchMixin
+Django search mixin
