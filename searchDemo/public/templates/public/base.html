@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        button,
+        input[type="submit"]{
+            border:0;
+            padding:5px;
+            cursor:pointer;
+        }
+
+        .page-navigation a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="search">
+        <form id="search_form" action="/" method="get" accept-charset="utf-8">
+            <input type="text" name="q" value="{% for word in query_words %}{{ word }} {% endfor %}" placeholder="Search">
+            <span class="button">
+                <input type="submit" value="Search">
+            </span>
+        </form>
+        <p>You can search by title. So searching 'article2', will give you 'article2', 'article20', 'article21' etc.</p>
+        <p>You can also search by page body. So searching 'foxtrot', will give you any articles that have a page containing that string.</p>
+        <p>Try searching these:</p>
+        <ul>
+            <li>
+                <a href="/?q=alpha">Alpha</a>
+            </li>
+            <li>
+                <a href="/?q=bravo">Bravo</a>
+            </li>
+            <li>
+                <a href="/?q=charlie">Charlie</a>
+            </li>
+            <li>
+                <a href="/?q=delta">Delta</a>
+            </li>
+            <li>
+                <a href="/?q=echo">Echo</a>
+            </li>
+            <li>
+                <a href="/?q=foxtrot">Foxtrot</a>
+            </li>
+        </ul>
+    </div>
+    <div>
+        {% block content %}{% endblock content %}
+    </div>
+</body>
+</html>

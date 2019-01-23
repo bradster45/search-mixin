@@ -1,0 +1,14 @@
+{% extends 'public/base.html' %}
+
+{% block title %}Article {{ object.title }}{% endblock title%}
+
+{% block content %}
+    <h3>{{ object.title }}</h3>
+    {% for page in object.pages.all %}
+        <div>
+            <p>
+                {{ page.body|safe }}
+            </p>
+        </div>
+    {% endfor %}
+{% endblock content %}

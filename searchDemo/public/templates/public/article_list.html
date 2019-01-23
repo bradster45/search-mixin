@@ -1,0 +1,19 @@
+{% extends 'public/base.html' %}
+
+{% block title %}Articles{% endblock title%}
+
+{% block content %}
+    <h3>Results</h3>
+    <h5>Found {{ page_obj.paginator.count }} matching results for: "{{ q }}"</h5>
+    {% for object in object_list %}
+        <div>
+            <p>
+                <a href="{% url 'article' object.pk %}">
+                    {{ object.title }}
+                </a>
+            </p>
+        </div>
+    {% endfor %}
+
+    {% include 'public/include/pagination.html' %}
+{% endblock content %}
